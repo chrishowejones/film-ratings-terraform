@@ -26,6 +26,10 @@ variable "availability_zone" {
   }
 }
 
+variable "ami_image_id" {
+  description = "Set this to ECS optimized instance for your region e.g. ami-0de29b072b458b107 for eu-west-1"
+}
+
 ########################### Test VPC Config ################################
 
 variable "film_ratings_vpc" {
