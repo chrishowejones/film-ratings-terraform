@@ -8,7 +8,7 @@ resource "aws_ecs_task_definition" "film_ratings_app" {
     container_definitions = <<DEFINITION
 [
   {
-    "name": "film_ratings_app2",
+    "name": "film_ratings_app",
     "image": "chrishowejones/film_ratings_app:latest",
     "essential": true,
     "portMappings": [

@@ -8,6 +8,6 @@ resource "aws_ecs_service" "film_ratings_ecs_service" {
   	load_balancer {
     	target_group_arn  = "${aws_alb_target_group.film_ratings_app_target_group.arn}"
     	container_port    = 3000
-    	container_name    = "film_ratings_app2"
+    	container_name    = "film_ratings_app"
 	}
 }
