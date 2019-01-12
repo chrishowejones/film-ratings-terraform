@@ -1,3 +1,4 @@
+db_password= "password"
 ecs_cluster="film_ratings_cluster"
 ecs_key_pair_name="film_ratings_key_pair"
 region= "eu-west-1"

@@ -1,4 +1,4 @@
-resource "aws_alb" "film-ratings-alb-load-balancer" {
+resource "aws_alb" "film_ratings_alb_load_balancer" {
   name                = "film-ratings-alb-load-balancer"
   security_groups     = ["${aws_security_group.film_ratings_public_sg.id}"]
   subnets             = ["${aws_subnet.film_ratings_public_sn_01.id}", "${aws_subnet.film_ratings_public_sn_02.id}"]
@@ -8,7 +8,7 @@ resource "aws_alb" "film-ratings-alb-load-balancer" {
   }
 }
 
-resource "aws_alb_target_group" "film-ratings-app-target-group" {
+resource "aws_alb_target_group" "film_ratings_app_target_group" {
   name                = "film-ratings-app-target-group"
   port                = "3000"
   protocol            = "HTTP"
@@ -35,12 +35,12 @@ resource "aws_alb_target_group" "film-ratings-app-target-group" {
 }
 
 resource "aws_alb_listener" "alb-listener" {
-  load_balancer_arn = "${aws_alb.film-ratings-alb-load-balancer.arn}"
+  load_balancer_arn = "${aws_alb.film_ratings_alb_load_balancer.arn}"
   port              = "80"
   protocol          = "HTTP"
 
   default_action {
-    target_group_arn = "${aws_alb_target_group.film-ratings-app-target-group.arn}"
+    target_group_arn = "${aws_alb_target_group.film_ratings_app_target_group.arn}"
     type             = "forward"
   }
 }

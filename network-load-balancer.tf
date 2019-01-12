@@ -1,4 +1,4 @@
-resource "aws_lb" "film-ratings-nw-load-balancer" {
+resource "aws_lb" "film_ratings_nw_load_balancer" {
   name               = "film-ratings-nw-load-balancer"
   internal           = true
   load_balancer_type = "network"
@@ -10,7 +10,7 @@ resource "aws_lb" "film-ratings-nw-load-balancer" {
 
 }
 
-resource "aws_lb_target_group" "film-ratings-db-target-group" {
+resource "aws_lb_target_group" "film_ratings_db_target_group" {
   name                = "film-ratings-db-target-group"
   port                = "5432"
   protocol            = "TCP"
@@ -29,13 +29,13 @@ resource "aws_lb_target_group" "film-ratings-db-target-group" {
   }
 }
 
-resource "aws_alb_listener" "film-ratings-nw-listener" {
-  load_balancer_arn = "${aws_lb.film-ratings-nw-load-balancer.arn}"
+resource "aws_lb_listener" "film_ratings_nw_listener" {
+  load_balancer_arn = "${aws_lb.film_ratings_nw_load_balancer.arn}"
   port              = "5432"
   protocol          = "TCP"
 
   default_action {
-    target_group_arn = "${aws_lb_target_group.film-ratings-db-target-group.arn}"
+    target_group_arn = "${aws_lb_target_group.film_ratings_db_target_group.arn}"
     type             = "forward"
   }
 }
