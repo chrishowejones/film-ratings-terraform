@@ -59,7 +59,7 @@ terraform apply
 ...
 ```
 
-## to destroy resources in AWS
+## To destroy resources in AWS
 
 To destroy the resources in your AWS account:
 
@@ -68,4 +68,6 @@ terraform destroy
 
 ```
 
-_
+## Legal
+
+Copyright © 2019 Chris Howe-Jones
