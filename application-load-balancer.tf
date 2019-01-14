@@ -13,10 +13,11 @@ resource "aws_alb_target_group" "film_ratings_app_target_group" {
   port                = "3000"
   protocol            = "HTTP"
   vpc_id              = "${aws_vpc.film_ratings_vpc.id}"
+  deregistration_delay = "20"
 
   health_check {
-    healthy_threshold   = "5"
-    unhealthy_threshold = "2"
+    healthy_threshold   = "2"
+    unhealthy_threshold = "5"
     interval            = "30"
     matcher             = "200"
     path                = "/"

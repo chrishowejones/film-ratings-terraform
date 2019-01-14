@@ -13,6 +13,7 @@ resource "aws_ecs_task_definition" "film_ratings_db" {
       autoprovision = true
     }
   }
+  network_mode = "awsvpc"
   container_definitions = <<DEFINITION
 [
   {
@@ -21,8 +22,7 @@ resource "aws_ecs_task_definition" "film_ratings_db" {
     "essential": true,
     "portMappings": [
       {
-        "containerPort": 5432,
-        "hostPort": 5432
+        "containerPort": 5432
       }
     ],
     "environment": [
