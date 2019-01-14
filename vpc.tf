@@ -101,7 +101,7 @@ resource "aws_security_group" "film_ratings_public_sg" {
   ingress {
     from_port = 0
     to_port = 0
-    protocol = "tcp"
+    protocol = "-1"
     cidr_blocks = [
       "${var.film_ratings_public_01_cidr}",
       "${var.film_ratings_public_02_cidr}"]

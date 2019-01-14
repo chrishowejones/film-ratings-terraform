@@ -4,12 +4,12 @@ data "aws_ecs_task_definition" "film_ratings_app" {
 }
 
 resource "aws_ecs_task_definition" "film_ratings_app" {
-    family                = "film_ratings_app"
-    container_definitions = <<DEFINITION
+  family                = "film_ratings_app"
+  container_definitions = <<DEFINITION
 [
   {
     "name": "film_ratings_app",
-    "image": "chrishowejones/film_ratings_app:latest",
+    "image": "chrishowejones/film-ratings-app:latest",
     "essential": true,
     "portMappings": [
       {
@@ -27,8 +27,16 @@ resource "aws_ecs_task_definition" "film_ratings_app" {
         "value": "${var.db_password}"
       }
     ],
-    "memory": 256,
-    "cpu": 128
+    "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "film_ratings_app",
+          "awslogs-region": "${var.region}",
+          "awslogs-stream-prefix": "ecs"
+        }
+    },
+    "memory": 1024,
+    "cpu": 256
   }
 ]
 DEFINITION
