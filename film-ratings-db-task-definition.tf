@@ -7,11 +7,7 @@ resource "aws_ecs_task_definition" "film_ratings_db" {
   family                = "film_ratings_db"
   volume {
     name = "filmdbvolume"
-
-    docker_volume_configuration {
-      scope         = "shared"
-      autoprovision = true
-    }
+    host_path = "/mnt/efs/postgres"
   }
   network_mode = "awsvpc"
   container_definitions = <<DEFINITION

@@ -17,7 +17,7 @@ resource "aws_alb_target_group" "film_ratings_app_target_group" {
 
   health_check {
     healthy_threshold   = "2"
-    unhealthy_threshold = "5"
+    unhealthy_threshold = "6"
     interval            = "30"
     matcher             = "200"
     path                = "/"

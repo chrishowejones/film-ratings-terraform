@@ -10,6 +10,8 @@ resource "aws_vpc" "film_ratings_vpc" {
   tags {
     Name = "${var.film_ratings_vpc}"
   }
+  enable_dns_support = "true"
+  enable_dns_hostnames = "true"
 }
 
 # Internet gateway for the public subnet
