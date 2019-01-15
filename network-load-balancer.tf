@@ -20,7 +20,7 @@ resource "aws_lb_target_group" "film_ratings_db_target_group" {
   health_check {
     healthy_threshold   = "3"
     unhealthy_threshold = "3"
-    interval            = "15"
+    interval            = "10"
     port                = "traffic-port"
     protocol            = "TCP"
   }
