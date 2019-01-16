@@ -9,7 +9,7 @@ resource "aws_ecs_task_definition" "film_ratings_app" {
 [
   {
     "name": "film_ratings_app",
-    "image": "chrishowejones/film-ratings-app:latest",
+    "image": "${var.film_ratings_app_image}",
     "essential": true,
     "portMappings": [
       {

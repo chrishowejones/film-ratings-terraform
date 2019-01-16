@@ -34,6 +34,10 @@ variable "db_password" {
   description = "Database password"
 }
 
+variable "film_ratings_app_image" {
+  description = "Docker image for the film ratings application"
+}
+
 ########################### Test VPC Config ################################
 
 variable "film_ratings_vpc" {
