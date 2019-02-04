@@ -24,7 +24,7 @@ terraform init
 ## Setup required Environment vars
 
 These Terraform resources require the following variables to be typed
-in on every run:
+in on every run and will prompt for them:
 
 ```
 aws_access_key_id
