@@ -1,7 +1,7 @@
 resource "aws_launch_configuration" "ecs-launch-configuration" {
   name                        = "ecs-launch-configuration"
   image_id                    = "${var.ami_image_id}" # need to change ami for different regions
-  instance_type               = "t2.medium"
+  instance_type               = "t2.small"
   iam_instance_profile        = "${aws_iam_instance_profile.ecs-instance-profile.id}"
 
   root_block_device {

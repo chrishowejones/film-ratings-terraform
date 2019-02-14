@@ -5,6 +5,8 @@ resource "aws_ecs_service" "film_ratings_app_service" {
   task_definition = "${aws_ecs_task_definition.film_ratings_app.family}:${max("${aws_ecs_task_definition.film_ratings_app.revision}", "${data.aws_ecs_task_definition.film_ratings_app.revision}")}"
   depends_on      = [ "aws_ecs_service.film_ratings_db_service"]
   desired_count   = "${var.desired_capacity}"
+  deployment_minimum_healthy_percent = "50"
+  deployment_maximum_percent = "200"
 
   load_balancer {
     target_group_arn  = "${aws_alb_target_group.film_ratings_app_target_group.arn}"
