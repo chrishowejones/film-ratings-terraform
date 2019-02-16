@@ -34,6 +34,10 @@ output "app-alb-load-balancer-dns-name" {
   value = "${aws_alb.film_ratings_alb_load_balancer.dns_name}"
 }
 
+output "nw-lb-load-balancer-dns-name" {
+  value = "${aws_lb.film_ratings_nw_load_balancer.dns_name}"
+}
+
 output "nw-lb-load-balancer-name" {
   value = "${aws_lb.film_ratings_nw_load_balancer.name}"
 }
