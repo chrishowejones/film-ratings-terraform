@@ -3,7 +3,7 @@ db_password= "password"
 ecs_cluster="film_ratings_cluster"
 ecs_key_pair_name="film_ratings_key_pair"
 region= "eu-west-1"
-ami_image_id= "ami-0728d926f3f65c089" # need to change this if you change regions from eu-west-1
+ami_image_id= "ami-0dc3fa046ca0e570c" # need to change this if you change regions from eu-west-1
 film_ratings_app_image= "chrishowejones/film-ratings-app:latest"
 
 # no need to change these unless you want to
