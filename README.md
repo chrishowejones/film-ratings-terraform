@@ -29,7 +29,6 @@ in on every run and will prompt for them:
 ```
 aws_access_key_id
 aws_secret_access_key
-region
 ```
 
 If you tire of typing these in you can set the following environment
@@ -38,7 +37,6 @@ variables to the appropriate values:
 ``` shell
 export TF_VAR_aws_access_key_id=xxxxxxxx
 export TF_VAR_aws_secret_access_key=xxxxxxxxxxxxxxxxxxx
-export TF_VAR_region=xx-xxxx-x
 ```
 
 ## Check what will be created
