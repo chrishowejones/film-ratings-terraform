@@ -7,4 +7,5 @@ data "aws_ami" "latest_ecs" {
     values = ["amzn2-ami-ecs-hvm-*"]
   }
 
+  owners = [ "amazon" ]
 }

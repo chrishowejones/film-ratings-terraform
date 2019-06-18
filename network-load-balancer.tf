@@ -4,7 +4,7 @@ resource "aws_lb" "film_ratings_nw_load_balancer" {
   load_balancer_type = "network"
   subnets            = ["${aws_subnet.film_ratings_public_sn_01.id}", "${aws_subnet.film_ratings_public_sn_02.id}"]
 
-  tags {
+  tags = {
     Name = "film-ratings-nw-load-balancer"
   }
 
@@ -25,7 +25,7 @@ resource "aws_lb_target_group" "film_ratings_db_target_group" {
     protocol            = "TCP"
   }
 
-  tags {
+  tags = {
     Name = "film-ratings-db-target-group"
   }
 }

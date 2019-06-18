@@ -1,5 +1,5 @@
 resource "aws_efs_file_system" "filmdbefs" {
-  tags {
+  tags = {
     Name = "filmdbefs"
   }
 }

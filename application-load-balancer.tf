@@ -3,7 +3,7 @@ resource "aws_alb" "film_ratings_alb_load_balancer" {
   security_groups     = ["${aws_security_group.film_ratings_public_sg.id}"]
   subnets             = ["${aws_subnet.film_ratings_public_sn_01.id}", "${aws_subnet.film_ratings_public_sn_02.id}"]
 
-  tags {
+  tags = {
     Name = "film-ratings-alb-load-balancer"
   }
 }
@@ -29,7 +29,7 @@ resource "aws_alb_target_group" "film_ratings_app_target_group" {
     type  = "lb_cookie"
   }
 
-  tags {
+  tags = {
     Name = "film-ratings-app-target-group"
   }
 }

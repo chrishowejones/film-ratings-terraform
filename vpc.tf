@@ -7,7 +7,7 @@ data "aws_availability_zones" "available" {}
 # Define a vpc
 resource "aws_vpc" "film_ratings_vpc" {
   cidr_block = "${var.film_ratings_network_cidr}"
-  tags {
+  tags = {
     Name = "${var.film_ratings_vpc}"
   }
   enable_dns_support = "true"
@@ -17,7 +17,7 @@ resource "aws_vpc" "film_ratings_vpc" {
 # Internet gateway for the public subnet
 resource "aws_internet_gateway" "film_ratings_ig" {
   vpc_id = "${aws_vpc.film_ratings_vpc.id}"
-  tags {
+  tags = {
     Name = "film_ratings_ig"
   }
 }
@@ -27,7 +27,7 @@ resource "aws_subnet" "film_ratings_public_sn_01" {
   vpc_id = "${aws_vpc.film_ratings_vpc.id}"
   cidr_block = "${var.film_ratings_public_01_cidr}"
   availability_zone = "${data.aws_availability_zones.available.names[0]}"
-  tags {
+  tags = {
     Name = "film_ratings_public_sn_01"
   }
 }
@@ -37,7 +37,7 @@ resource "aws_subnet" "film_ratings_public_sn_02" {
   vpc_id = "${aws_vpc.film_ratings_vpc.id}"
   cidr_block = "${var.film_ratings_public_02_cidr}"
   availability_zone = "${data.aws_availability_zones.available.names[1]}"
-  tags {
+  tags = {
     Name = "film_ratings_public_sn_02"
   }
 }
@@ -49,7 +49,7 @@ resource "aws_route_table" "film_ratings_public_sn_rt_01" {
     cidr_block = "0.0.0.0/0"
     gateway_id = "${aws_internet_gateway.film_ratings_ig.id}"
   }
-  tags {
+  tags = {
     Name = "film_ratings_public_sn_rt_01"
   }
 }
@@ -67,7 +67,7 @@ resource "aws_route_table" "film_ratings_public_sn_rt_02" {
     cidr_block = "0.0.0.0/0"
     gateway_id = "${aws_internet_gateway.film_ratings_ig.id}"
   }
-  tags {
+  tags = {
     Name = "film_ratings_public_sn_rt_02"
   }
 }
@@ -118,7 +118,7 @@ resource "aws_security_group" "film_ratings_public_sg" {
       "0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "film_ratings_public_sg"
   }
 }
