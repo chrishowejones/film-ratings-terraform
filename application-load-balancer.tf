@@ -10,18 +10,17 @@ resource "aws_alb" "film_ratings_alb_load_balancer" {
 
 resource "aws_alb_target_group" "film_ratings_app_target_group" {
   name                = "film-ratings-app-target-group"
-  port                = "3000"
+  port                =  3000
   protocol            = "HTTP"
   vpc_id              = "${aws_vpc.film_ratings_vpc.id}"
-  deregistration_delay = "20"
+  deregistration_delay = "10"
 
   health_check {
     healthy_threshold   = "2"
     unhealthy_threshold = "6"
     interval            = "30"
-    matcher             = "200"
+    matcher             = "200,301,302"
     path                = "/"
-    port                = "traffic-port"
     protocol            = "HTTP"
     timeout             = "5"
   }
@@ -44,4 +43,10 @@ resource "aws_alb_listener" "alb-listener" {
     target_group_arn = "${aws_alb_target_group.film_ratings_app_target_group.arn}"
     type             = "forward"
   }
+}
+
+resource "aws_autoscaling_attachment" "asg_attachment_film_rating_app" {
+  autoscaling_group_name = "film-ratings-autoscaling-group"
+  alb_target_group_arn   = "${aws_alb_target_group.film_ratings_app_target_group.arn}"
+  depends_on = [ "aws_autoscaling_group.film-ratings-autoscaling-group" ]
 }
