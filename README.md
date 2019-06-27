@@ -5,7 +5,7 @@ the Film Ratings app from my blog *TODO - add link*
 
 ## Prerequisites
 
-Install Terraform.
+Install Terraform. This repo as been tested on version v0.12.2
 
 Set up an AWS account and add a new IAM user with admin
 privilege. Generate a new key pair for that user called
