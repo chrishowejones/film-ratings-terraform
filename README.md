@@ -1,7 +1,7 @@
 # Film Ratings Terraform
 
 This repo has the terraform definitions to set up an AWS cluster for
-the Film Ratings app from my blog *TODO - add link*
+the Film Ratings app from my [blog](https://circleci.com/blog/deploy-a-clojure-web-application-to-aws-using-terraform/)
 
 ## Prerequisites
 
